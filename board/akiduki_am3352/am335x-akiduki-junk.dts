@@ -57,6 +57,12 @@
 			gpios = <&gpio2 4 GPIO_ACTIVE_LOW>;
 			default-state = "off";
 		};
+	//add
+		usr_wisun_pin5 {
+			label = "wisun_pin5";
+			gpios = <&gpio0 7 GPIO_ACTIVE_HIGH>;
+			default-state = "on";
+		};
 
 
 	};
@@ -471,4 +477,3 @@
 	regulator-max-microvolt = <1800000>;
 	regulator-always-on;
 };
-
