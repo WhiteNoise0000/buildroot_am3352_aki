@@ -18,6 +18,13 @@
 
 [WI-SUNモジュールと疎通できない？ #1](https://github.com/bakueikozo/buildroot_am3352_aki/issues/1)　※Issue内のWi-SUNモジュール安定化対策をマージ済み
 
+## 追加されている資材
+[GitHub - mackerelio / mackerel-agent](https://github.com/mackerelio/mackerel-agent)
+
+[GitHub - k1LoW / mackerel-plugin-prometheus-exporter](https://github.com/k1LoW/mackerel-plugin-prometheus-exporter)
+
+[GitHub - matsuu / go-el-controller](https://github.com/matsuu/go-el-controller) ※/usr/bin/smartmeter-exporter
+
 
 ## 元README
 Buildroot is a simple, efficient and easy-to-use tool to generate embedded
