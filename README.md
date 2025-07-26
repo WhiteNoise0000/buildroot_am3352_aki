@@ -25,6 +25,10 @@
 
 [GitHub - matsuu / go-el-controller](https://github.com/matsuu/go-el-controller) ※/usr/bin/smartmeter-exporter
 
+## 個人的に加えた変更
+- NTPサーバの向き先を日本国内(NICT/インターネットマルチフィード)へ変更
+- ntpd起動前に時刻を強制同期
+- Mackerelエージェント設定ファイルに対し、smartmeter-exporter収集設定を追記
 
 ## 元README
 Buildroot is a simple, efficient and easy-to-use tool to generate embedded
