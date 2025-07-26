@@ -29,6 +29,8 @@
 - NTPサーバの向き先を日本国内(NICT/インターネットマルチフィード)へ変更
 - ntpd起動前に時刻を強制同期
 - Mackerelエージェント設定ファイルに対し、smartmeter-exporter収集設定を追記
+- smartmeter-exporterの標準出力をログ出力するよう修正
+- smartmeter-exporterのPIDファイルを作成するオプションを追加(stato-stop-daemon -m)
 
 ## 元README
 Buildroot is a simple, efficient and easy-to-use tool to generate embedded

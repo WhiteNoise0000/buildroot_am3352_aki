@@ -3,24 +3,34 @@
 # Starts smartmeter-exporter.
 #
 
+DAEMON="smartmeter-exporter"
+PIDFILE="/var/run/$DAEMON.pid"
+
 # Allow a few customizations from a config file
-test -r /etc/default/smartmeter-exporter && . /etc/default/smartmeter-exporter
+[ -r "/etc/default/$DAEMON" ] && . "/etc/default/$DAEMON"
+
+SMARTMETER_EXPORTER_LOGFILE="/var/log/$DAEMON.log"
 
 start() {
-	printf "Starting smartmeter-exporter: "
+	printf 'Starting %s: ' "$DAEMON"
 	umask 077
 
-	start-stop-daemon -S -q -b -p /var/run/smartmeter-exporter.pid \
-		--exec /usr/bin/smartmeter-exporter -- $SMARTMETER_EXPORTER_ARGS
-	[ $? = 0 ] && echo "OK" || echo "FAIL"
+	start-stop-daemon -S -q -b -m -p "$PIDFILE" -x /bin/sh \
+		-- -c "$DAEMON $SMARTMETER_EXPORTER_ARGS > $SMARTMETER_EXPORTER_LOGFILE 2>&1"
+	status=$?
+	[ $status = 0 ] && echo "OK" || echo "FAIL"
+	return "$status"
 }
 stop() {
-	printf "Stopping smartmeter-exporter: "
-	start-stop-daemon -K -q -p /var/run/smartmeter-exporter.pid
-	[ $? = 0 ] && echo "OK" || echo "FAIL"
+	printf 'Stopping %s: ' "$DAEMON"
+	start-stop-daemon -K -q -p "$PIDFILE"
+	status=$?
+	[ $status = 0 ] && echo "OK" || echo "FAIL"
+	return "$status"
 }
 restart() {
 	stop
+	sleep 1
 	start
 }
 
@@ -39,4 +49,4 @@ case "$1" in
 	exit 1
 esac
 
-exit $?
+exit $status
