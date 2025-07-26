@@ -13,6 +13,8 @@ NTPD_ARGS="@NTPD_EXTRA_ARGS@ -g"
 
 start() {
 	printf 'Starting %s: ' "$DAEMON"
+	# Before Sync
+	ntpdate -u ntp.nict.jp
 	# shellcheck disable=SC2086 # we need the word splitting
 	start-stop-daemon -S -q -p "$PIDFILE" -x "/usr/sbin/$DAEMON" \
 		-- $NTPD_ARGS -p "$PIDFILE"
