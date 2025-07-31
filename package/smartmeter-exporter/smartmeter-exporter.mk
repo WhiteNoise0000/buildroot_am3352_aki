@@ -5,7 +5,7 @@
 ################################################################################
 
 SMARTMETER_EXPORTER_VERSION = 0.0.2
-SMARTMETER_EXPORTER_SITE = $(call github,matsuu,go-el-controller,rl7023)
+SMARTMETER_EXPORTER_SITE = $(call github,WhiteNoise0000,go-el-controller,rl7023)
 
 SMARTMETER_EXPORTER_BUILD_TARGETS = cmd/smartmeter-exporter
 
