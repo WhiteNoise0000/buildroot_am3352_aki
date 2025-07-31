@@ -5,6 +5,12 @@
 秋月白箱の運用ではDebian導入を前提とする情報が多々ありますが、
 本リポジトリ資材はBuidRoot上に[Mackerel](https://mackerel.io/)エージェントおよびGo言語実装のsmartmeter-exporterを追加導入しており、軽量な運用が可能です。
 
+```sh
+make akiduki_am3352_defconfig
+make menuconfig
+make
+```
+
 ## 🎖️ 先人たちの偉業
 [秋月謎SoC基板付きケースの購入～解析とLinux(buildroot,Debian)を動かす](https://honeylab.hatenablog.jp/entry/2023/03/23/152732)
 
